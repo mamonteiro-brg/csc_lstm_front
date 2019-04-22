@@ -51,18 +51,20 @@ $(function () {
     $('#prazoc').click(function () {
         const freguesia_or_rua = $('.select1 option:selected').text();
         const second_select1 = $('.ruaCC option:selected').text();
+        const tipo = "curto";
         console.log(freguesia_or_rua);
         console.log(second_select1);
-        manda_prazo(freguesia_or_rua,second_select1);
+        manda_prazo(freguesia_or_rua,second_select1,tipo);
     });
 
     //Ao Clicar no botao longo prazo
     $('#prazol').click(function () {
        const freguesia_or_rua2 = $('.select2 option:selected').text();
        const second_select2 = $('.ruaCL option:selected').text();
+       const tipo = "longo";
        console.log(freguesia_or_rua2);
        console.log(second_select2);
-       manda_prazo(freguesia_or_rua2,second_select2);
+       manda_prazo(freguesia_or_rua2,second_select2,tipo);
     });
 
     //Quando a pagina estiver pronta ocultar as duas select com varias opçoes
@@ -73,8 +75,8 @@ $(function () {
 
 
     //Funcao responsavel pelo pedido ajax ao servidor
-    function manda_prazo(freg_rua, select) {
-        var url1 = "http://127.0.0.1:5000/da?sele1="+freg_rua+"&sele2="+select;
+    function manda_prazo(freg_rua, select,tipo) {
+        var url1 = "http://127.0.0.1:5000/da?sele1="+freg_rua+"&sele2="+select+"&tipo="+tipo;
 
         //pedido ajax
         $.ajax({
@@ -83,8 +85,36 @@ $(function () {
             crossDomain: true,
             success: function (data) {
                 console.log(data);
-                $('#response').empty()
-                $('#response').append(data.name)
+                $('#response').empty();
+                var titulo;
+                var tit = data.tipo;
+                console.log(tit);
+                if(tit === "curto"){
+                    titulo = "Previsão a Curto Prazo";
+                }
+                else{
+                    titulo = "Previsão a Longo Prazo";
+                }
+                var options = {
+                    chart: {
+                        type: 'line'
+                    },
+                    title: {
+                        text: titulo,
+                        align: 'center'
+                    },
+                    series: [{
+                        name: 'sales',
+                        data: [30,40,35,50,49,60,70,91,125]
+                    }],
+                    xaxis: {
+                        categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+                    }
+                }
+
+                var chart = new ApexCharts(document.querySelector("#response"), options);
+
+                chart.render();
                 
             }
         });
