@@ -95,6 +95,24 @@ $(function () {
                 else{
                     titulo = "Previsão a Longo Prazo";
                 }
+
+                // xaxis dynamic
+                var chave = []
+                $.each(data, function (key,value) {
+                   chave.push(key);
+                });
+                var chave_int = chave.map(Number);
+                console.log(chave);
+                console.log(chave_int);
+
+                // series dynamic
+
+                var val = []
+                $.each(data,function (key,value) {
+                    val.push(value);
+                });
+                console.log(val);
+
                 var options = {
                     chart: {
                         type: 'line'
@@ -104,11 +122,11 @@ $(function () {
                         align: 'center'
                     },
                     series: [{
-                        name: 'sales',
-                        data: [30,40,35,50,49,60,70,91,125]
+                        name: 'predict',
+                        data: val
                     }],
                     xaxis: {
-                        categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+                        categories: chave_int
                     }
                 }
 

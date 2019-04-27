@@ -116,6 +116,14 @@ body{
     opacity: 0;
 }
 
+/* Grafico */
+
+#response{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
 /* Footer */
 
 .footer{
@@ -133,3 +141,4 @@ body{
 .footer .copyright a{
     color : black;
 }
+
