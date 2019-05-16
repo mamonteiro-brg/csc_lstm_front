@@ -89,50 +89,82 @@ $(function () {
                 var titulo;
                 var tit = data.tipo;
                 console.log(tit);
-                if(tit === "curto"){
+                if(tipo === "curto"){
+                    console.log("Entrei AQUI")
                     titulo = "Previsão a Curto Prazo";
+                    // series dynamic
+                    var val_c = [];
+                    $.each(data,function (key,value) {
+                        val_c.push(value);
+                    });
+                    console.log(val_c);
+
+                    console.log("PASSEI");
+
+                    var tamanho  = val_c.length;
+
+                    var ant = val_c[tamanho-5];
+                    var exato = val_c[tamanho-4];
+
+                    console.log(ant);
+                    console.log(exato);
+
+                    if(exato > ant){
+                        console.log("Estou no if")
+                        var vermelho = document.createElement("img");
+                        vermelho.src = "img/semaforo_vermelho.png";
+                        $("#response").append(vermelho);
+                    }
+                    else{
+                        console.log("Estou no else")
+                        var verde = document.createElement("img");
+                        verde.src = "img/semaforo_green.png";
+                        $("#response").append(verde);
+                    }
                 }
                 else{
                     titulo = "Previsão a Longo Prazo";
+                    // xaxis dynamic
+                    var chave = [];
+                    $.each(data, function (key,value) {
+                        chave.push(key);
+                    });
+                    var chave_int = chave.map(Number);
+                    console.log(chave);
+                    console.log(chave_int);
+
+                    // series dynamic
+
+                    var val = [];
+                    $.each(data,function (key,value) {
+                        val.push(value);
+                    });
+                    console.log(val);
+
+                    // chart
+                    var options = {
+                        chart: {
+                            type: 'line'
+                        },
+                        title: {
+                            text: titulo,
+                            align: 'center'
+                        },
+                        series: [{
+                            name: 'predict',
+                            data: val,
+                        }],
+                        xaxis: {
+                            categories: chave_int,
+                        }
+                    };
+
+                    var chart = new ApexCharts(document.querySelector("#response"), options);
+
+                    chart.render();
                 }
 
-                // xaxis dynamic
-                var chave = []
-                $.each(data, function (key,value) {
-                   chave.push(key);
-                });
-                var chave_int = chave.map(Number);
-                console.log(chave);
-                console.log(chave_int);
 
-                // series dynamic
-
-                var val = []
-                $.each(data,function (key,value) {
-                    val.push(value);
-                });
-                console.log(val);
-
-                var options = {
-                    chart: {
-                        type: 'line'
-                    },
-                    title: {
-                        text: titulo,
-                        align: 'center'
-                    },
-                    series: [{
-                        name: 'predict',
-                        data: val
-                    }],
-                    xaxis: {
-                        categories: chave_int
-                    }
-                }
-
-                var chart = new ApexCharts(document.querySelector("#response"), options);
-
-                chart.render();
                 
             }
         });
