@@ -122,6 +122,25 @@ body{
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 50px;
+    display: block;
+}
+
+
+/* Semaforo */
+
+#response > img{
+    display: inline-block;
+    margin-left: 50px;
+    margin-right: auto;
+    width: 150px;    /* largura da imagem */
+    height: 150px;   /*  altura da imagem  */
+    margin-top: 10px; /* margem do topo */
+}
+
+#response > span{
+    display: inline-block;
+    margin-left: 50px;
+    vertical-align: top;
 }
 
 /* Footer */

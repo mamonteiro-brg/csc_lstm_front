@@ -113,13 +113,19 @@ $(function () {
                         console.log("Estou no if")
                         var vermelho = document.createElement("img");
                         vermelho.src = "img/semaforo_vermelho.png";
+                        vermelho.class = "semaforo_vermelho;"
                         $("#response").append(vermelho);
                     }
                     else{
                         console.log("Estou no else")
                         var verde = document.createElement("img");
                         verde.src = "img/semaforo_green.png";
+                        verde.class = "semaforo_verde;"
+                        var texto = document.createElement("span");
+                        texto.class = "informacao";
+                        texto.innerText = "O Fluxo de Trânsito baixou relativamente à uma hora atrás na " + freg_rua + " : " + select;
                         $("#response").append(verde);
+                        $("#response").append(texto);
                     }
                 }
                 else{
