@@ -137,10 +137,24 @@ body{
     margin-top: 10px; /* margem do topo */
 }
 
-#response > span{
+#response > span {
     display: inline-block;
     margin-left: 50px;
     vertical-align: top;
+}
+
+#response > p {
+    display: inline-block;
+    border: 5px solid green;
+
+}
+
+#response > p {
+    display: inline-block;
+    border: 5px solid red;
+    width: auto;
+    height: 50%;
+    vertical-align: middle;
 }
 
 /* Footer */

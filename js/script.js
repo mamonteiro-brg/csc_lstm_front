@@ -120,16 +120,24 @@ $(function () {
                         console.log("Estou no else")
                         var verde = document.createElement("img");
                         verde.src = "img/semaforo_green.png";
-                        verde.class = "semaforo_verde;"
+                        verde.class = "semaforo_verde;";
+                        var caixa_verde_ant = document.createElement("p");
+                        caixa_verde_ant.class = "verde_ant";
+                        caixa_verde_ant.innerText = ant;
+                        var caixa_verde_exato = document.createElement("p");
+                        caixa_verde_exato.class = "verde_exato";
+                        caixa_verde_exato.innerText = exato;
                         var texto = document.createElement("span");
                         texto.class = "informacao";
                         texto.innerText = "O Fluxo de Trânsito baixou relativamente à uma hora atrás na " + freg_rua + " : " + select;
                         $("#response").append(verde);
                         $("#response").append(texto);
+                        $("#response").append(caixa_verde_ant);
+                        $("#response").append(caixa_verde_exato);
                     }
                 }
                 else{
-                    titulo = "Previsão a Longo Prazo";
+                    titulo = "Previsão a Longo Prazo na " + freg_rua + " : "  + select;
                     // xaxis dynamic
                     var chave = [];
                     $.each(data, function (key,value) {
