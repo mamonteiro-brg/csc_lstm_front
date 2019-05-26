@@ -90,37 +90,60 @@ $(function () {
                 var tit = data.tipo;
                 console.log(tit);
                 if(tipo === "curto"){
-                    console.log("Entrei AQUI")
+                    console.log("Entrei AQUI");
                     titulo = "Previsão a Curto Prazo";
                     // series dynamic
-                    var val_c = [];
-                    $.each(data,function (key,value) {
-                        val_c.push(value);
+					console.log("Data");
+					//console.log(data);
+					var obj = JSON.parse(data);
+					//console.log(obj);
+                    var val_a = [];
+					var val_p = [];
+					$.each(obj,function (key,value) {
+						console.log("Interacao");
+						val_a.push(value.Atual);
+						val_p.push(value.Previsao);
                     });
-                    console.log(val_c);
+                    
+                    //console.log(val_c);
+					console.log(val_a);
+					console.log(val_p);
 
                     console.log("PASSEI");
 
-                    var tamanho  = val_c.length;
+                    var tamanho_a  = val_a.length;
+					var tamanho_p = val_p.length;
 
-                    var ant = val_c[tamanho-5];
-                    var exato = val_c[tamanho-4];
+                    var ant = val_a[tamanho_a-1];
+                    var exato = val_p[tamanho_p-1];
 
                     console.log(ant);
                     console.log(exato);
 
                     if(exato > ant){
-                        console.log("Estou no if")
+                        console.log("Estou no if");
                         var vermelho = document.createElement("img");
                         vermelho.src = "img/semaforo_vermelho.png";
-                        vermelho.class = "semaforo_vermelho;"
+                        vermelho.class = "semaforo_vermelho";
+						var caixa_vermelho_ant = document.createElement("p");
+                        caixa_vermelho_ant.class = "vermelho_ant";
+                        caixa_vermelho_ant.innerText = ant;
+                        var caixa_vermelho_exato = document.createElement("p");
+                        caixa_vermelho_exato.class = "vermelho_exato";
+                        caixa_vermelho_exato.innerText = exato;
+                        var texto = document.createElement("span");
+                        texto.class = "informacao";
+                        texto.innerText = "O Fluxo de Trânsito aumentou relativamente à uma hora atrás na " + freg_rua + " : " + select;
                         $("#response").append(vermelho);
+                        $("#response").append(texto);
+                        $("#response").append(caixa_vermelho_ant);
+                        $("#response").append(caixa_vermelho_exato);
                     }
                     else{
-                        console.log("Estou no else")
+                        console.log("Estou no else");
                         var verde = document.createElement("img");
                         verde.src = "img/semaforo_green.png";
-                        verde.class = "semaforo_verde;";
+                        verde.class = "semaforo_verde";
                         var caixa_verde_ant = document.createElement("p");
                         caixa_verde_ant.class = "verde_ant";
                         caixa_verde_ant.innerText = ant;
@@ -139,7 +162,7 @@ $(function () {
                 else{
                     titulo = "Previsão a Longo Prazo na " + freg_rua + " : "  + select;
                     // xaxis dynamic
-                    var chave = [];
+                    let chave = [];
                     $.each(data, function (key,value) {
                         chave.push(key);
                     });
