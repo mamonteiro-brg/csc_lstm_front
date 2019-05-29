@@ -84,9 +84,11 @@ $(function () {
             url: url1,
             crossDomain: true,
             success: function (data) {
-                console.log(data);
+                console.log(tipo)
+                //console.log(data);
                 $('#response').empty();
                 var titulo;
+                console.log(tipo)
                 var tit = data.tipo;
                 console.log(tit);
                 if(tipo === "curto"){
@@ -162,22 +164,31 @@ $(function () {
                 else{
                     titulo = "Previsão a Longo Prazo na " + freg_rua + " : "  + select;
                     // xaxis dynamic
-                    let chave = [];
-                    $.each(data, function (key,value) {
-                        chave.push(key);
+                    console.log("Estarei aqui")
+                    var obj_l = JSON.parse(data);
+                    console.log("Estou aqui");
+                    var val_a_l = [];
+                    var val_p_l = [];
+                    $.each(obj_l,function (key,value) {
+                        console.log("Interacao");
+                        val_a_l.push(value.Atual);
+                        val_p_l.push(value.Previsao);
                     });
-                    var chave_int = chave.map(Number);
-                    console.log(chave);
-                    console.log(chave_int);
+                    va_mostra_p = [];
+                    for(var i = 0; i<24; i++){
+                        va_mostra_p[i] = val_p_l[i];
+                    }
 
+                    console.log(va_mostra_p)
+                    chave_int = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
                     // series dynamic
-
+                    /*
                     var val = [];
                     $.each(data,function (key,value) {
                         val.push(value);
                     });
                     console.log(val);
-
+                    */
                     // chart
                     var options = {
                         chart: {
@@ -189,7 +200,7 @@ $(function () {
                         },
                         series: [{
                             name: 'predict',
-                            data: val,
+                            data: va_mostra_p,
                         }],
                         xaxis: {
                             categories: chave_int,
