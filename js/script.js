@@ -179,17 +179,14 @@ $(function () {
                         va_mostra_p[i] = val_p_l[i];
                     }
 
-                    console.log(va_mostra_p)
+                    va_mostra_a = [];
+
+                    for(var j = 0; j<24;j++){
+                        va_mostra_a[j] = val_a_l[j];
+                    }
+
                     chave_int = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
-                    // series dynamic
-                    /*
-                    var val = [];
-                    $.each(data,function (key,value) {
-                        val.push(value);
-                    });
-                    console.log(val);
-                    */
-                    // chart
+
                     var options = {
                         chart: {
                             type: 'line'
@@ -199,8 +196,11 @@ $(function () {
                             align: 'center'
                         },
                         series: [{
+                            name: 'real',
+                            data: va_mostra_a,
+                        }, {
                             name: 'predict',
-                            data: va_mostra_p,
+                            data: va_mostra_p
                         }],
                         xaxis: {
                             categories: chave_int,
