@@ -115,8 +115,8 @@ $(function () {
                     var tamanho_a  = val_a.length;
 					var tamanho_p = val_p.length;
 
-                    var ant = val_a[tamanho_a-1];
-                    var exato = val_p[tamanho_p-1];
+                    var ant = val_a[tamanho_a-5];
+                    var exato = val_p[tamanho_p-5];
 
                     console.log(ant);
                     console.log(exato);
@@ -124,7 +124,7 @@ $(function () {
                     if(exato > ant){
                         console.log("Estou no if");
                         var vermelho = document.createElement("img");
-                        vermelho.src = "img/red_arrow.jpg";
+                        vermelho.src = "img/red_arrow.png";
                         vermelho.class = "semaforo_vermelho";
 						var caixa_vermelho_ant = document.createElement("p");
                         caixa_vermelho_ant.class = "vermelho_ant";
@@ -134,7 +134,7 @@ $(function () {
                         caixa_vermelho_exato.innerText = exato;
                         var texto = document.createElement("span");
                         texto.class = "informacao";
-                        texto.innerText = "O Fluxo de Trânsito aumentou relativamente à uma hora atrás na " + freg_rua + " : " + select;
+                        texto.innerText = "O Fluxo de Trânsito previsto aumentou relativamente ao valor das 20h  " + freg_rua + " : " + select;
                         $("#response").append(vermelho);
                         $("#response").append(texto);
                         $("#response").append(caixa_vermelho_ant);
@@ -143,7 +143,7 @@ $(function () {
                     else{
                         console.log("Estou no else");
                         var verde = document.createElement("img");
-                        verde.src = "img/gree_arrow.png";
+                        verde.src = "img/green_arrow.png";
                         verde.class = "semaforo_verde";
                         var caixa_verde_ant = document.createElement("p");
                         caixa_verde_ant.class = "verde_ant";
@@ -153,7 +153,7 @@ $(function () {
                         caixa_verde_exato.innerText = exato;
                         var texto = document.createElement("span");
                         texto.class = "informacao";
-                        texto.innerText = "O Fluxo de Trânsito baixou relativamente à uma hora atrás na " + freg_rua + " : " + select;
+                        texto.innerText = "O Fluxo de Trânsito previsto baixou relativamente ao valor das 20h " + freg_rua + " : " + select;
                         $("#response").append(verde);
                         $("#response").append(texto);
                         $("#response").append(caixa_verde_ant);
@@ -182,9 +182,17 @@ $(function () {
 					
 					//console.log(conca_a_l);
 					
-					//va_mostra_a = va_mostra_a.map(Number);
-					//va_mostra_p = va_mostra_p.map(Number);
-					
+					val_a_l = val_a_l.map(Number);
+					val_p_l = val_p_l.map(Number);
+
+
+					for(var j = 0; j < val_p_l.length;j++){
+					    //debugger;
+					    val_p_l[j] = (val_p_l[j] < 0)? -1*val_p_l[j]:(val_p_l[j]);
+                    }
+					console.log("Abs");
+					console.log(val_p_l);
+
 					//console.log(va_mostra_a);
 					//console.log("Previsao");
 					//console.log(va_mostra_p);
