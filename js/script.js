@@ -11,7 +11,7 @@ $(function () {
             $('.ruaCC').append('<option>N14 Bosch</option>');
             $('.ruaCC').append('<option>Rua Nova de Santa Cruz</option>');
             $('.ruaCC').append('<option>Avenida João Paulo II</option>');
-            $('.ruaCC').append('<option>Avenida Padre Júlio Fragata</option>');
+            $('.ruaCC').append('<option>Avenida Padre Julio Fragata</option>');
             $('.ruaCC').append('<option>Rua Costa Gomes</option>');
         }
         if(str === 'Freguesia'){
@@ -34,7 +34,7 @@ $(function () {
             $('.ruaCL').append('<option>N14 Bosch</option>');
             $('.ruaCL').append('<option>Rua Nova de Santa Cruz</option>');
             $('.ruaCL').append('<option>Avenida João Paulo II</option>');
-            $('.ruaCL').append('<option>Avenida Padre Júlio Fragata</option>');
+            $('.ruaCL').append('<option>Avenida Padre Julio Fragata</option>');
             $('.ruaCL').append('<option>Rua Costa Gomes</option>');
         }
         if(str === 'Freguesia'){
@@ -110,8 +110,7 @@ $(function () {
                     //console.log(val_c);
 					console.log(val_a);
 					console.log(val_p);
-
-                    console.log("PASSEI");
+					console.log("PASSEI");
 
                     var tamanho_a  = val_a.length;
 					var tamanho_p = val_p.length;
@@ -125,7 +124,7 @@ $(function () {
                     if(exato > ant){
                         console.log("Estou no if");
                         var vermelho = document.createElement("img");
-                        vermelho.src = "img/semaforo_vermelho.png";
+                        vermelho.src = "img/red_arrow.jpg";
                         vermelho.class = "semaforo_vermelho";
 						var caixa_vermelho_ant = document.createElement("p");
                         caixa_vermelho_ant.class = "vermelho_ant";
@@ -144,7 +143,7 @@ $(function () {
                     else{
                         console.log("Estou no else");
                         var verde = document.createElement("img");
-                        verde.src = "img/semaforo_green.png";
+                        verde.src = "img/gree_arrow.png";
                         verde.class = "semaforo_verde";
                         var caixa_verde_ant = document.createElement("p");
                         caixa_verde_ant.class = "verde_ant";
@@ -174,16 +173,26 @@ $(function () {
                         val_a_l.push(value.Atual);
                         val_p_l.push(value.Previsao);
                     });
-                    va_mostra_p = [];
-                    for(var i = 0; i<24; i++){
-                        va_mostra_p[i] = val_p_l[i];
-                    }
-
-                    va_mostra_a = [];
-
-                    for(var j = 0; j<24;j++){
-                        va_mostra_a[j] = val_a_l[j];
-                    }
+                    
+					
+					//console.log("Motra array");
+					//console.log(va_mostra_a);
+					
+					//conca_a_l = [].concat.apply([],va_mostra_a);
+					
+					//console.log(conca_a_l);
+					
+					//va_mostra_a = va_mostra_a.map(Number);
+					//va_mostra_p = va_mostra_p.map(Number);
+					
+					//console.log(va_mostra_a);
+					//console.log("Previsao");
+					//console.log(va_mostra_p);
+					
+					va_ultimos_a = val_a_l.slice(val_a_l.length-24,val_a_l.length);
+					va_ultimos_p = val_p_l.slice(val_p_l.length-24,val_p_l.length);
+					
+					
 
                     chave_int = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
 
@@ -197,10 +206,10 @@ $(function () {
                         },
                         series: [{
                             name: 'real',
-                            data: va_mostra_a,
+                            data: va_ultimos_a
                         }, {
                             name: 'predict',
-                            data: va_mostra_p
+                            data: va_ultimos_p
                         }],
                         xaxis: {
                             categories: chave_int,

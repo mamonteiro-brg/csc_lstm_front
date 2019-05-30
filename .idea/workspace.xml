@@ -16,7 +16,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-368">
+            <state relative-caret-position="816">
               <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
             </state>
           </provider>
@@ -34,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="202" column="46" selection-start-line="202" selection-start-column="46" selection-end-line="202" selection-end-column="46" />
+            <state relative-caret-position="204">
+              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
             </state>
           </provider>
         </entry>
@@ -71,7 +71,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -79,10 +78,16 @@
               <item name="tp2_csc" type="b2602c69:ProjectViewProjectNode" />
               <item name="tp2_csc" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="tp2_csc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tp2_csc" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -129,12 +134,13 @@
       <workItem from="1558100645195" duration="5299000" />
       <workItem from="1558447386441" duration="8643000" />
       <workItem from="1558734503837" duration="17000" />
-      <workItem from="1559162610926" duration="1817000" />
+      <workItem from="1559162610926" duration="2811000" />
+      <workItem from="1559211771783" duration="930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54493000" />
+    <option name="totallyTimeSpent" value="56417000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-7" width="1488" height="878" extended-state="6" />
@@ -163,6 +169,13 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/estilinhos.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1190">
@@ -170,17 +183,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-368">
-          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="202" column="46" selection-start-line="202" selection-start-column="46" selection-end-line="202" selection-end-column="46" />
+        <state relative-caret-position="204">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
         </state>
       </provider>
     </entry>
