@@ -5,21 +5,11 @@ $(function () {
         const str = $('.select1 option:selected').text();
         if(str === 'Rua'){
             $('.ruaCC option').remove();
-            $('.ruaCC').append('<option>Avenida da Liberdade</option>');
-            $('.ruaCC').append('<option>Avenida Central</option>');
-            $('.ruaCC').append('<option>Rua de Caires</option>');
-            $('.ruaCC').append('<option>N14 Bosch</option>');
-            $('.ruaCC').append('<option>Rua Nova de Santa Cruz</option>');
-            $('.ruaCC').append('<option>Avenida João Paulo II</option>');
             $('.ruaCC').append('<option>Avenida Padre Julio Fragata</option>');
-            $('.ruaCC').append('<option>Rua Costa Gomes</option>');
         }
         if(str === 'Freguesia'){
             $('.ruaCC option').remove();
-            $('.ruaCC').append('<option>Maximinos</option>');
             $('.ruaCC').append('<option>S. Vitor</option>');
-            $('.ruaCC').append('<option>S. José e S. Lázaro</option>');
-            $('.ruaCC').append('<option>Real</option>');
         }
     }).trigger("change");
 
@@ -28,21 +18,11 @@ $(function () {
         const str = $('.select2 option:selected').text();
         if(str === 'Rua'){
             $('.ruaCL option').remove();
-            $('.ruaCL').append('<option>Avenida da Liberdade</option>');
-            $('.ruaCL').append('<option>Avenida Central</option>');
-            $('.ruaCL').append('<option>Rua de Caires</option>');
-            $('.ruaCL').append('<option>N14 Bosch</option>');
-            $('.ruaCL').append('<option>Rua Nova de Santa Cruz</option>');
-            $('.ruaCL').append('<option>Avenida João Paulo II</option>');
             $('.ruaCL').append('<option>Avenida Padre Julio Fragata</option>');
-            $('.ruaCL').append('<option>Rua Costa Gomes</option>');
         }
         if(str === 'Freguesia'){
             $('.ruaCL option').remove();
-            $('.ruaCL').append('<option>Maximinos</option>');
             $('.ruaCL').append('<option>S. Vitor</option>');
-            $('.ruaCL').append('<option>S. José e S. Lázaro</option>');
-            $('.ruaCL').append('<option>Real</option>');
         }
     }).trigger("change");
 
